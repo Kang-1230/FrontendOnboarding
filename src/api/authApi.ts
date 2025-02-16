@@ -12,6 +12,7 @@ export const fetchUsers = async (id: string): Promise<IUser> => {
     .single();
 
   if (error) {
+    console.log("회원 정보 불러오기 실패");
     throw error;
   } else {
     console.log("회원 정보 불러오기 성공");
