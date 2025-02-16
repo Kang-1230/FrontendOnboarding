@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Navbar from "../components/Navbar";
 
 const Home = () => {
   const testGetFunction = useQuery({
@@ -20,7 +19,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <div>Home</div>
     </>
   );
