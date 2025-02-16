@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const testGetFunction = useQuery({
@@ -19,18 +20,7 @@ const Home = () => {
 
   return (
     <>
-      <header>
-        <div>
-          {true ? (
-            <>
-              <div>사용자 이름 님, 안녕하세요!</div>
-              <div>로그아웃</div>
-            </>
-          ) : (
-            <div>로그인</div>
-          )}
-        </div>
-      </header>
+      <Navbar />
       <div>Home</div>
     </>
   );
