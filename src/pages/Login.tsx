@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import supabase from "../utils/supabase";
+import { useAuthStore } from "../store/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ export default function Login() {
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
@@ -23,8 +24,13 @@ export default function Login() {
       console.error("error message", error.message);
       alert(error);
     } else {
+      console.log("로그인 data", data);
       alert("로그인 성공");
       navigate("/");
+      useAuthStore.setState({
+        isLoggedIn: true,
+        email: data.user.email,
+      });
     }
   };
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
 
 export default function Navbar() {
+  console.log("로그인 여부", useAuthStore.getState().isLoggedIn);
   return (
     <>
       <Link to="/">홈</Link>
